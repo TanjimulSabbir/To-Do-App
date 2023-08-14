@@ -1,9 +1,8 @@
 import { useSelector } from "react-redux";
 import cancelImage from "../../assets/images/cancel.png";
 
-export default function Todo() {
-
-    const ToDoData = useSelector((state) => state?.todolist?.value);
+function Todo() {
+    const ToDoData = useSelector((state) => state.todolist);
     console.log(ToDoData,"ToDoData")
     return (
         <>
@@ -36,6 +35,7 @@ export default function Todo() {
                                 <div className="flex-shrink-0 h-4 w-4 rounded-full border-2 ml-auto cursor-pointer border-red-500 hover:bg-red-500"></div>
 
                                 <img
+                                 onClick={()=>handleDelete(id)}
                                     src={cancelImage}
                                     className="flex-shrink-0 w-4 h-4 ml-2 cursor-pointer"
                                     alt="Cancel"
@@ -48,3 +48,4 @@ export default function Todo() {
         </>
     );
 }
+export default Todo;

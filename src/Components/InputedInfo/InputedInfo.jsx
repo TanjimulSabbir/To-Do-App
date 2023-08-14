@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import tickImage from "../../assets/images/double-tick.png";
 import noteImage from "../../assets/images/notes.png";
 import plusImage from "../../assets/images/plus.png";
@@ -6,11 +6,12 @@ import { toDoAdd } from "../../Redux/Todo/Actions/Actions";
 
 export default function InputedInfo() {
     const dispatch = useDispatch();
-
+    const ToDoData = useSelector(state => state.todolist)
+    const length = ToDoData.length;
     const handleSubmit = (event) => {
         event.preventDefault();
         const Text = event.target.text.value;
-        dispatch(toDoAdd(Text));
+        dispatch(toDoAdd({ id: length + 1, text: Text }));
     }
 
     return (

@@ -23,8 +23,9 @@ const ToDoReducer = (state = InitialState, action) => {
             const selectedToDoText = state.filter(data => data.id == action.id);
             return selectedToDoText;
         }
-        default:
+        default:{
             return state;
+        }
     }
 }
 
