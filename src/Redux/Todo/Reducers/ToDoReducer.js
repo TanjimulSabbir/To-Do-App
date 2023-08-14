@@ -1,7 +1,7 @@
 import { ADDED, ALLCLEAR, ALLCOMPLETED, DELETED, SELECTCOLOR, SELECTTEXT } from "../ActionTypes/ActionTypes"
-import { InitialState } from "./initialState"
+import InitialState from "./initialState";
 
-export const ToDoReducer = (state = InitialState, action) => {
+const ToDoReducer = (state = InitialState, action) => {
     switch (action.type) {
         case ADDED:
             return [...state, action.payload]
@@ -27,3 +27,5 @@ export const ToDoReducer = (state = InitialState, action) => {
             return state;
     }
 }
+
+export default ToDoReducer;
