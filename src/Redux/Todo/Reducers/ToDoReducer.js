@@ -6,7 +6,7 @@ const ToDoReducer = (state = InitialState, action) => {
         case ADDED:
             return [...state, action.payload]
         case DELETED: {
-            const restOfToDo = state.filter(data => data.id !== action.id);
+            const restOfToDo = state.filter(data => data.id !== action.payload);
             return restOfToDo;
         }
         case ALLCLEAR: {
@@ -23,7 +23,7 @@ const ToDoReducer = (state = InitialState, action) => {
             const selectedToDoText = state.filter(data => data.id == action.id);
             return selectedToDoText;
         }
-        default:{
+        default: {
             return state;
         }
     }

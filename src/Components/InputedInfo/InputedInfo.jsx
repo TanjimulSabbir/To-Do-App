@@ -11,6 +11,9 @@ export default function InputedInfo() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const Text = event.target.text.value;
+        if(!Text){
+            return;
+        }
         dispatch(toDoAdd({ id: length + 1, text: Text }));
     }
 
