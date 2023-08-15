@@ -1,4 +1,4 @@
-import { ADDED, ALLCLEAR, ALLCOMPLETED, DELETED, SELECTCOLOR, SELECTTEXT } from "../ActionTypes/ActionTypes"
+import { ADDED, ALLCOMPLETED, CLEARCOMPLETED, DELETED, SELECTCOLOR, TOGGLED } from "../ActionTypes/ActionTypes"
 import InitialState from "./initialState";
 
 const ToDoReducer = (state = InitialState, action) => {
@@ -9,17 +9,17 @@ const ToDoReducer = (state = InitialState, action) => {
             const restOfToDo = state.filter(data => data.id !== action.payload);
             return restOfToDo;
         }
-        case ALLCLEAR: {
-            return []
+        case CLEARCOMPLETED: {
+            return state.filter(data => !data.complete)
         }
         case ALLCOMPLETED: {
-            return [...state, action.payload]
+            return state.filter(data => data.complete)
         }
         case SELECTCOLOR: {
             const selectedToDo = state.filter(data => data.id == action.id);
             return selectedToDo;
         }
-        case SELECTTEXT: {
+        case TOGGLED: {
             const selectedToDoText = state.filter(data => data.id == action.id);
             return selectedToDoText;
         }
