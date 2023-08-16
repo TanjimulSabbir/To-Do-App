@@ -4,7 +4,7 @@ import { colorTodoShow, statusChanged } from "../../Redux/Filter/Actions/Actions
 export default function Footer() {
 	const dispatch = useDispatch();
 	const ToDoData = useSelector(state => state.todolist);
-	const filterData = useSelector(state => state?.filterData);
+	const filterData = useSelector(state => state?.filter);
 	const { status, colors } = filterData;
 
 	const handleStatusChanged = (status) => {
@@ -33,9 +33,9 @@ export default function Footer() {
 			<ul className="flex space-x-1 items-center text-xs">
 				<li onClick={() => handleStatusChanged("All")} className="cursor-pointer font-bold">All</li>
 				<li>|</li>
-				<li onClick={() => handleStatusChanged("incompleted")} className="cursor-pointer">Incomplete</li>
+				<li onClick={() => handleStatusChanged("Incompleted")} className="cursor-pointer">Incomplete</li>
 				<li>|</li>
-				<li onClick={() => handleStatusChanged("completed")} className="cursor-pointer">Complete</li>
+				<li onClick={() => handleStatusChanged("Completed")} className="cursor-pointer">Complete</li>
 				<li></li>
 				<li></li>
 
