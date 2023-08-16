@@ -10,19 +10,35 @@ const ToDoReducer = (state = InitialState, action) => {
             return restOfToDo;
         }
         case CLEARCOMPLETED: {
-            return state.filter(data => !data.status)
+            return state.filter(data => !data.completed)
         }
         case ALLCOMPLETED: {
             // const allcompleted=state.filter(data => data.complete)
-            return [...state,{status:true}]
+            return state.map(data => {
+                return { ...data, completed: true }
+            })
         }
         case SELECTCOLOR: {
-            const selectedToDo = state.filter(data => data.id == action.id);
+            const selectedToDo = state.map(data => {
+                if (data.id !== action.payload.todoid) {
+                    return data;
+                } else {
+                    return {
+                        ...data, color: action.payload.color
+                    }
+                }
+            });
             return selectedToDo;
         }
         case TOGGLED: {
-            const selectedToDoText = state.filter(data => data.id == action.id);
-            return selectedToDoText;
+            const findSelected = state.map(data => {
+                if (data.id === action.payload) {
+                    return { ...data, completed: !data.completed }
+                } else {
+                    return data;
+                }
+            })
+            return findSelected;
         }
         default: {
             return state;

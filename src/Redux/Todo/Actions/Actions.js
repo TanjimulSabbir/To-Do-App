@@ -22,17 +22,17 @@ export const clearCompleted = () => {
         type: CLEARCOMPLETED
     }
 }
-export const selectToggled = (id) => {
+export const selectToggled = (todoid) => {
     return {
         type: TOGGLED,
-        payload: id,
+        payload: todoid,
     }
 }
-export const selectColor = (id, color) => {
+export const selectColor = (todoid, color) => {
     return {
         type: SELECTCOLOR,
         payload: {
-            id, color
+            todoid, color
         }
     }
 }
