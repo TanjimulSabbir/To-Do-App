@@ -1,22 +1,26 @@
 import { ALLSHOW, COLORSHOW, COMPLETEDSHOW, INCOMPLETEDSHOW } from "../ActionTypes/ActionTypes"
 import InitialState from "../../Todo/Reducers/initialState";
+import { useSelector } from "react-redux";
 
 
 const FilterReducers = (state = InitialState, action) => {
+    const AllState = useSelector(state => state.todolist)
     switch (action.type) {
         case ALLSHOW:
-            return state;
+            return AllState;
         case COMPLETEDSHOW: {
-            const completedToDos = state.filter(data => data.completed);
+            const completedToDos = AllState.filter(data => data.completed);
             return completedToDos;
         }
         case INCOMPLETEDSHOW: {
-            return state.filter(data => !data.completed)
+            return AllState.filter(data => !data.completed)
         }
-        case COLORSHOW:
-            return state.filter(data => data.color === action.payload)
+        case COLORSHOW: {
+            const selectedToDo = AllState.filter(todo => todo.color === action.payload)
+            return selectedToDo;
+        }
         default: {
-            return state;
+            return AllState;
         }
     }
 }

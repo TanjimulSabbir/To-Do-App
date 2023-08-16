@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function Footer() {
 	const dispatch = useDispatch();
-	const [color,setColor]=useState()
+	const [color, setColor] = useState()
 	const ToDoData = useSelector(state => state.todolist);
 	const handleShowAll = () => {
 		dispatch(allTodoShow())
@@ -44,7 +44,7 @@ export default function Footer() {
 				<li onClick={() => handleCompletedShow()} className="cursor-pointer">Complete</li>
 				<li></li>
 				<li></li>
-				
+
 				<li onClick={() => handleColorShow("green")} className={`h-3 w-3 border-2 border-green-500 md:hover:bg-green-500 rounded-full cursor-pointer 
 				${color === "green" && "bg-green-500"}`}></li>
 
