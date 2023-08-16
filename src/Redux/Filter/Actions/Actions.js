@@ -6,10 +6,9 @@ export const allTodoShow = (ToDoText) => {
         payload: ToDoText,
     }
 }
-export const completedTodoShow = (id) => {
+export const completedTodoShow = () => {
     return {
         type: COMPLETEDSHOW,
-        payload: id,
     }
 }
 export const incompletedTodoShow = () => {
