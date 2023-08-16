@@ -1,25 +1,15 @@
-import { ALLSHOW, COLORSHOW, COMPLETEDSHOW, INCOMPLETEDSHOW } from "../ActionTypes/ActionTypes"
+import { COLORSHOW, STATUSCHANGED, } from "../ActionTypes/ActionTypes"
 
-export const allTodoShow = (ToDoText) => {
+export const statusChanged = (value) => {
     return {
-        type: ALLSHOW,
-        payload: ToDoText,
-    }
-}
-export const completedTodoShow = () => {
-    return {
-        type: COMPLETEDSHOW,
-    }
-}
-export const incompletedTodoShow = () => {
-    return {
-        type: INCOMPLETEDSHOW,
+        type: STATUSCHANGED,
+        payload: value
     }
 }
 export const colorTodoShow = (color) => {
     return {
         type: COLORSHOW,
-        payload:color,
+        payload: color,
     }
 }
 

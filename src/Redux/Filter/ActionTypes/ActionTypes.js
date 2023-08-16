@@ -1,5 +1,3 @@
-export const ALLSHOW="filter/allshow";
-export const COMPLETEDSHOW="todo/completedshow";
-export const INCOMPLETEDSHOW="todo/incompletedshow";
+export const STATUSCHANGED="filter/allshow";
 export const COLORSHOW="todo/colorshow";
 

@@ -1,21 +1,22 @@
-import { ALLSHOW, COLORSHOW, COMPLETEDSHOW, INCOMPLETEDSHOW } from "../ActionTypes/ActionTypes"
-import InitialState from "../../Todo/Reducers/initialState";
+import { COLORSHOW, STATUSCHANGED } from "../ActionTypes/ActionTypes"
+import { initialFilterState } from "./InitialState";
 
 
-const FilterReducers = (state = InitialState, action) => {
+
+const FilterReducers = (state = initialFilterState, action) => {
     switch (action.type) {
-        case ALLSHOW:
-            return state;
-        case COMPLETEDSHOW: {
-            const completedToDos = state.filter(data => data.completed);
-            return completedToDos;
-        }
-        case INCOMPLETEDSHOW: {
-            return state.filter(data => !data.completed)
+        case STATUSCHANGED: {
+            return { ...state, status: action.payload }
         }
         case COLORSHOW: {
-            const selectedToDo = state.filter(todo => todo.color === action.payload)
-            return selectedToDo;
+            const matchedColor = state.colors?.map(data => {
+                if (data === action.payload) {
+                    return data;
+                } else {
+                    return { ...data, colors: action.payload }
+                }
+            })
+            return { ...state, colors: [...state.colors, action.payload] };
         }
         default: {
             return state;
