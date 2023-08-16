@@ -14,7 +14,7 @@ export const toDoDelete = (id) => {
 }
 export const allCompleted = () => {
     return {
-        type: ALLCOMPLETED
+        type: ALLCOMPLETED,
     }
 }
 export const clearCompleted = () => {

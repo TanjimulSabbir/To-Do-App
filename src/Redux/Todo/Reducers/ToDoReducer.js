@@ -10,10 +10,11 @@ const ToDoReducer = (state = InitialState, action) => {
             return restOfToDo;
         }
         case CLEARCOMPLETED: {
-            return state.filter(data => !data.complete)
+            return state.filter(data => !data.status)
         }
         case ALLCOMPLETED: {
-            return state.filter(data => data.complete)
+            // const allcompleted=state.filter(data => data.complete)
+            return [...state,{status:true}]
         }
         case SELECTCOLOR: {
             const selectedToDo = state.filter(data => data.id == action.id);
