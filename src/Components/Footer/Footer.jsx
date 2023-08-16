@@ -21,21 +21,22 @@ export default function Footer() {
 		setColor(color)
 	}
 
-	const completed = ToDoData.filter(todo => !todo.completed);
+	const completed = ToDoData.filter(todo => !todo.completed).length;
 
 	const handleTaskLeft = (ToDoLength) => {
-		if (ToDoLength <= 0) {
-			return "0 Task"
-		}
-		if (ToDoLength === 1) {
-			return "1 Task"
-		} else {
-			return `${ToDoLength} Tasks`
+		switch (ToDoLength) {
+			case 0:
+				return "No Task"
+			case 1:
+				return "1 Task"
+
+			default:
+				return `${ToDoLength} Tasks`
 		}
 	}
 	return (
 		<div className="mt-4 flex justify-between text-xs text-gray-500">
-			<p>{handleTaskLeft(completed.length)} left</p>
+			<p>{handleTaskLeft(completed)} left</p>
 			<ul className="flex space-x-1 items-center text-xs">
 				<li onClick={() => handleShowAll()} className="cursor-pointer font-bold">All</li>
 				<li>|</li>

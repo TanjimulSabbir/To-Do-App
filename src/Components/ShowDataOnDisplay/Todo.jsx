@@ -5,6 +5,8 @@ import { TOGGLED } from "../../Redux/Todo/ActionTypes/ActionTypes";
 
 function Todo() {
     const ToDoData = useSelector((state) => state.todolist);
+    const FilterData = useSelector(state => state.filterData);
+    console.log(FilterData,"FilterData")
     const dispatch = useDispatch();
     const handleToDoDelete = (todoid) => {
         dispatch(toDoDelete(todoid))
@@ -15,6 +17,7 @@ function Todo() {
     const handleColor = (todoid, color) => {
         dispatch(selectColor(todoid, color))
     }
+    
     return (
         <>
             {
