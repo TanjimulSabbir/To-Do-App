@@ -10,10 +10,11 @@ const FilterReducers = (state = InitialState, action) => {
             const completedToDos = state.filter(data => data.completed);
             return completedToDos;
         }
-        case CLEARCOMPLETED: {
+        case INCOMPLETEDSHOW: {
             return state.filter(data => !data.completed)
         }
-       
+        case COLORSHOW:
+            return state.filter(data => data.color === action.payload)
         default: {
             return state;
         }

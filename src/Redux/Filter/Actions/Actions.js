@@ -16,9 +16,10 @@ export const incompletedTodoShow = () => {
         type: INCOMPLETEDSHOW,
     }
 }
-export const colorTodoShow = () => {
+export const colorTodoShow = (color) => {
     return {
         type: COLORSHOW,
+        payload:color,
     }
 }
 
