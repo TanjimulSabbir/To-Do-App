@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { allTodoShow, colorTodoShow, completedTodoShow, incompletedTodoShow } from "../../Redux/Filter/Actions/Actions";
+import { useState } from "react";
 
 export default function Footer() {
 	const dispatch = useDispatch();
+	const [color,setColor]=useState()
 	const ToDoData = useSelector(state => state.todolist);
 	const handleShowAll = () => {
 		dispatch(allTodoShow())
@@ -14,8 +16,11 @@ export default function Footer() {
 		dispatch(incompletedTodoShow())
 	}
 	const handleColorShow = (color) => {
+		setColor("")
 		dispatch(colorTodoShow(color))
+		setColor(color)
 	}
+
 	const completed = ToDoData.filter(todo => !todo.completed);
 
 	const handleTaskLeft = (ToDoLength) => {
@@ -39,20 +44,15 @@ export default function Footer() {
 				<li onClick={() => handleCompletedShow()} className="cursor-pointer">Complete</li>
 				<li></li>
 				<li></li>
-				{
-					ToDoData.map(todo => {
-						const { id, text, completed, color } = todo;
-						return (
-							<>
-								<li onClick={() => handleColorShow("green")} className={`h-3 w-3 border-2 border-green-500 md:hover:bg-green-500 rounded-full cursor-pointer ${color === "green" && "bg-green-500"}`}></li>
+				
+				<li onClick={() => handleColorShow("green")} className={`h-3 w-3 border-2 border-green-500 md:hover:bg-green-500 rounded-full cursor-pointer 
+				${color === "green" && "bg-green-500"}`}></li>
 
-								<li onClick={() => handleColorShow("red")} className={`h-3 w-3 border-2 border-red-500 md:hover:bg-red-500 rounded-full cursor-pointer ${color === "green" && "bg-red-500"}`}></li>
+				<li onClick={() => handleColorShow("red")} className={`h-3 w-3 border-2 border-red-500 md:hover:bg-red-500 rounded-full cursor-pointer 
+				${color === "red" && "bg-red-500"}`}></li>
 
-								<li onClick={() => handleColorShow("yellow")} className={`h-3 w-3 border-2 border-yellow-500 md:hover:bg-yellow-500 rounded-full cursor-pointer ${color === "green" && "bg-red-500"}`}></li>
-							</>
-						)
-					})
-				}
+				<li onClick={() => handleColorShow("yellow")} className={`h-3 w-3 border-2 border-yellow-500 md:hover:bg-yellow-500 rounded-full cursor-pointer 
+				${color === "yellow" && "bg-yellow-500"}`}></li>
 			</ul>
 		</div>
 	);
