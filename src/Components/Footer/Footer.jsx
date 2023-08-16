@@ -1,8 +1,9 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { allTodoShow, colorTodoShow, completedTodoShow, incompletedTodoShow } from "../../Redux/Filter/Actions/Actions";
 
 export default function Footer() {
     const dispatch = useDispatch();
+    const ToDoData = useSelector(state => state.todolist);
     const handleShowAll = () => {
         dispatch(allTodoShow())
     }
@@ -15,9 +16,22 @@ export default function Footer() {
     const handleColorShow = (color) => {
         dispatch(colorTodoShow(color))
     }
+    const CompletedTasks = ToDoData.filter(data => !data.completed);
+    const handleTaskLeft = (Length) => {
+        if (Length <= 0) {
+            return "0 Task"
+        }
+        if (Length === 1) {
+            return "1 Task"
+        } else {
+            return `${Length} Tasks`
+        }
+
+    }
+
     return (
         <div className="mt-4 flex justify-between text-xs text-gray-500">
-            <p>2 tasks left</p>
+            <p>{handleTaskLeft(CompletedTasks.length)} left</p>
             <ul className="flex space-x-1 items-center text-xs">
                 <li onClick={() => handleShowAll()} className="cursor-pointer font-bold">All</li>
                 <li>|</li>
