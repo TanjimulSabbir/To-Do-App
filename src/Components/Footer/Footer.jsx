@@ -31,21 +31,21 @@ export default function Footer() {
 		<div className="mt-4 flex justify-between text-xs text-gray-500">
 			<p>{handleTaskLeft(completed)} left</p>
 			<ul className="flex space-x-1 items-center text-xs">
-				<li onClick={() => handleStatusChanged("All")} className="cursor-pointer font-bold">All</li>
+				<li onClick={() => handleStatusChanged("All")} className={`cursor-pointer ${status === "All" && "font-bold text-green-500"}`}>All</li>
 				<li>|</li>
-				<li onClick={() => handleStatusChanged("Incompleted")} className="cursor-pointer">Incomplete</li>
+				<li onClick={() => handleStatusChanged("Incompleted")} className={`cursor-pointer ${status === "Incompleted" && "font-bold text-green-500"}`}>Incomplete</li>
 				<li>|</li>
-				<li onClick={() => handleStatusChanged("Completed")} className="cursor-pointer">Complete</li>
+				<li onClick={() => handleStatusChanged("Completed")} className={`cursor-pointer ${status === "Completed" && "font-bold text-green-500"}`}>Complete</li>
 				<li></li>
 				<li></li>
 
-				<li onClick={() => handleColorShow("green")} className={`h-3 w-3 border-2 border-green-500 md:hover:bg-green-500 rounded-full cursor-pointer 
+				<li onClick={() => handleColorShow("green")} className={`h-3 w-3 border-2 border-green-500 md:hover:bg-green-500 rounded-full cursor-pointer ${colors.includes("green") && "bg-green-500"}
 				`}></li>
 
-				<li onClick={() => handleColorShow("red")} className={`h-3 w-3 border-2 border-red-500 md:hover:bg-red-500 rounded-full cursor-pointer 
+				<li onClick={() => handleColorShow("red")} className={`h-3 w-3 border-2 border-red-500 md:hover:bg-red-500 rounded-full cursor-pointer ${colors.includes("red") && "bg-red-500"}
 				`}></li>
 
-				<li onClick={() => handleColorShow("yellow")} className={`h-3 w-3 border-2 border-yellow-500 md:hover:bg-yellow-500 rounded-full cursor-pointer 
+				<li onClick={() => handleColorShow("yellow")} className={`h-3 w-3 border-2 border-yellow-500 md:hover:bg-yellow-500 rounded-full cursor-pointer ${colors.includes("yellow") && "bg-yellow-500"}
 				`}></li>
 			</ul>
 		</div>
