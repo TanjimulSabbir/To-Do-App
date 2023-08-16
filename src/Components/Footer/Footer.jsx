@@ -6,15 +6,15 @@ export default function Footer() {
 	const dispatch = useDispatch();
 	const [color, setColor] = useState()
 	const ToDoData = useSelector(state => state.todolist);
-	const handleShowAll = () => {
-		dispatch(allTodoShow())
-	}
-	const handleCompletedShow = () => {
-		dispatch(completedTodoShow())
-	}
-	const handleIncompletedShow = () => {
-		dispatch(incompletedTodoShow())
-	}
+	// const handleShowAll = () => {
+	// 	dispatch(allTodoShow())
+	// }
+	// const handleCompletedShow = () => {
+	// 	dispatch(completedTodoShow())
+	// }
+	// const handleIncompletedShow = () => {
+	// 	dispatch(incompletedTodoShow())
+	// }
 	const handleColorShow = (color) => {
 		setColor("")
 		dispatch(colorTodoShow(color))
