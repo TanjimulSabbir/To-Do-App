@@ -1,25 +1,24 @@
 import { FiGithub, FiLinkedin, FiFacebook } from 'react-icons/fi';
 import { BsDiscord } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
 
-const Footer = () => {
+const MainFooter = () => {
     return (
         <div className='pt-10 bg-[#0a192f] text-Footer font-Bitter'>
             <footer className="footer pb-1 py-5 space-x-3 footer-center rounded">
-                <div>
+                <div className='flex items-center justify-center text-center text-white'>
                     <div className='px-2'>
                         <div className='text-xs'>
                             <p>Copyright © 2023 - All rights reserved by Tanjimul Islam Sabbir</p>
                         </div>
                         <small className='text-[9px]'>
-                            Developed by <Link className='text-green-500' to="https://www.linkedin.com/in/TanjimulSabbir" target='_blank'>Tanjimul Islam Sabbir.</Link>
+                            Developed by <a className='text-green-500' href="https://www.linkedin.com/in/TanjimulSabbir" target='_blank'>Tanjimul Islam Sabbir.</a>
                             </small>
                             <div className='flex justify-center items-center space-x-2'>
-                                <Link className='list-none text-[10px] text-white' to="https://github.com/TanjimulSabbir" target='_blank'><FiGithub /> </Link>
-                                <Link className='list-none text-[10px] text-white' to="https://www.linkedin.com/in/TanjimulSabbir" target='_blank'><FiLinkedin /> </Link>
-                                <Link className='list-none text-[10px] text-white' to="https://www.facebook.com/tanjimulsabbir.brahminykite" target='_blank'><FiFacebook /> </Link>
+                                <a className='list-none text-[10px] text-white' href="https://github.com/TanjimulSabbir" target='_blank'><FiGithub /> </a>
+                                <a className='list-none text-[10px] text-white' href="https://www.linkedin.com/in/TanjimulSabbir" target='_blank'><FiLinkedin /> </a>
+                                <a className='list-none text-[10px] text-white' href="https://www.facebook.com/tanjimulsabbir.brahminykite" target='_blank'><FiFacebook /> </a>
 
-                                <Link className='list-none text-[10px] text-white' to="https://www.discord.com/tanjimulsabbir" target='_blank'><  BsDiscord /> </Link>
+                                <a className='list-none text-[10px] text-white' href="https://www.discord.com/tanjimulsabbir" target='_blank'><  BsDiscord /> </a>
                             </div>
                     </div>
                 </div>
@@ -28,4 +27,4 @@ const Footer = () => {
     )
 }
 
-export default Footer;
+export default MainFooter;
