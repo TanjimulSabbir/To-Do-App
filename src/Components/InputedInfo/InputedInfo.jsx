@@ -15,11 +15,12 @@ export default function InputedInfo() {
             return;
         }
         dispatch(toDoAdd({ id: length + 1, text: Text }));
+        event.target.text.value = "";
     }
     const handleAllComplete = () => {
         dispatch(allCompleted())
     }
-    const handleClearCompleted=()=>{
+    const handleClearCompleted = () => {
         dispatch(clearCompleted())
     }
     return (
@@ -44,7 +45,7 @@ export default function InputedInfo() {
                     <img className="w-4 h-4" src={tickImage} alt="Complete" />
                     <span>Complete All Tasks</span>
                 </li>
-                <li onClick={()=>handleClearCompleted()} className="cursor-pointer">Clear completed</li>
+                <li onClick={() => handleClearCompleted()} className="cursor-pointer">Clear completed</li>
             </ul>
         </div>
     );
