@@ -1,5 +1,5 @@
 import { ADDED, ALLCOMPLETED, CLEARCOMPLETED, DELETED, SELECTCOLOR, TOGGLED } from "../ActionTypes/ActionTypes"
-import InitialState from "./initialState";
+import InitialState from "./InitialState";
 
 const ToDoReducer = (state = InitialState, action) => {
     switch (action.type) {
